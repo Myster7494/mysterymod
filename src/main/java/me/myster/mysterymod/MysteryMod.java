@@ -4,8 +4,12 @@ import me.myster.mysterymod.block.ModBlocks;
 import me.myster.mysterymod.item.ModItemGroups;
 import me.myster.mysterymod.item.ModItems;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.item.Items;
+import net.minecraft.item.RangedWeaponItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static net.minecraft.item.RangedWeaponItem.BOW_PROJECTILES;
 
 public class MysteryMod implements ModInitializer {
     // This logger is used to write text to the console and the log file.
@@ -22,5 +26,7 @@ public class MysteryMod implements ModInitializer {
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         ModItemGroups.registerItemGroups();
+        ModModelPredicates.registerModelPredicates();
+        RangedWeaponItem.CROSSBOW_HELD_PROJECTILES = BOW_PROJECTILES.or(stack -> stack.isOf(Items.FIREWORK_ROCKET)).or(stack -> stack.isOf(Items.WITHER_SKELETON_SKULL)).or(stack -> stack.isOf(Items.FIRE_CHARGE));
     }
 }
