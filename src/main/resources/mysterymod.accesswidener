@@ -10,3 +10,8 @@ accessible field net/minecraft/item/CrossbowItem charged Z
 accessible field net/minecraft/item/CrossbowItem loaded Z
 mutable field net/minecraft/item/RangedWeaponItem CROSSBOW_HELD_PROJECTILES Ljava/util/function/Predicate;
 accessible method net/minecraft/item/CrossbowItem createArrow (Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/entity/projectile/PersistentProjectileEntity;
+accessible class net/minecraft/recipe/BrewingRecipeRegistry$Recipe
+accessible field net/minecraft/recipe/BrewingRecipeRegistry ITEM_RECIPES Ljava/util/List;
+accessible method net/minecraft/recipe/BrewingRecipeRegistry hasPotionRecipe (Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+accessible method net/minecraft/recipe/BrewingRecipeRegistry hasItemRecipe (Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+accessible field net/minecraft/command/EntityDataObject entity Lnet/minecraft/entity/Entity;

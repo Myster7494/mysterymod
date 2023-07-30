@@ -1,5 +1,6 @@
 package me.myster.mysterymod.mixin;
 
+import me.myster.mysterymod.entity.CrossbowWitherSkullEntity;
 import net.minecraft.entity.CrossbowUser;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
@@ -37,7 +38,8 @@ public abstract class CrossbowItemMixin {
         if (isFirework) {
             projectileEntity = new FireworkRocketEntity(world, projectile, shooter, shooter.getX(), shooter.getEyeY() - (double) 0.15f, shooter.getZ(), true);
         } else if (projectile.isOf(Items.WITHER_SKELETON_SKULL)) {
-            projectileEntity = new WitherSkullEntity(world, shooter, vector3f.x, vector3f.y, vector3f.z);
+            projectileEntity = new CrossbowWitherSkullEntity(world, shooter, vector3f.x, vector3f.y, vector3f.z);
+            projectileEntity.setPos(shooter.getX(), shooter.getEyeY() - (double) 0.15f, shooter.getZ());
             if (shooter.getRandom().nextBoolean() && shooter.getRandom().nextBoolean() && shooter.getRandom().nextBoolean() && shooter.getRandom().nextBoolean()) {
                 ((WitherSkullEntity) projectileEntity).setCharged(true);
             }

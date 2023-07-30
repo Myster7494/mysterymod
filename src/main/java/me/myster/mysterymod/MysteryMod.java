@@ -27,6 +27,6 @@ public class MysteryMod implements ModInitializer {
         ModBlocks.registerModBlocks();
         ModItemGroups.registerItemGroups();
         ModModelPredicates.registerModelPredicates();
-        RangedWeaponItem.CROSSBOW_HELD_PROJECTILES = BOW_PROJECTILES.or(stack -> stack.isOf(Items.FIREWORK_ROCKET)).or(stack -> stack.isOf(Items.WITHER_SKELETON_SKULL)).or(stack -> stack.isOf(Items.FIRE_CHARGE));
+        RangedWeaponItem.CROSSBOW_HELD_PROJECTILES = BOW_PROJECTILES.or(stack -> stack.isOf(Items.FIREWORK_ROCKET)).or(stack -> stack.isOf(Items.WITHER_SKELETON_SKULL));
     }
 }

@@ -19,6 +19,10 @@ public class ModItemGroups {
         Registry.register(Registries.ITEM_GROUP, MYSTERYMOD, FabricItemGroup.builder().displayName(Text.translatable("itemgroup.mysterymod.mysterymod"))
                 .entries((displayContext, entries) -> {
                     entries.add(ModItems.ROUND_SHOT_CROSSBOW);
+                    entries.add(ModItems.BLACK_TEA);
+                    entries.add(ModItems.GREEN_TEA);
+                    entries.add(ModItems.GOLDEN_APPLE_BLACK_TEA);
+                    entries.add(ModItems.GOLDEN_APPLE_GREEN_TEA);
                 }).build());
     }
 }
