@@ -1,4 +1,8 @@
 {
   "item.mysterymod.round_shot_crossbow": "Round Shot Crossbow",
-  "itemgroup.mysterymod.mysterymod": "Mystery Mod"
+  "itemgroup.mysterymod.mysterymod": "Mystery Mod",
+  "item.mysterymod.black_tea": "Black Tea",
+  "item.mysterymod.golden_apple_black_tea": "Golden Apple Black Tea",
+  "item.mysterymod.green_tea": "Green Tea",
+  "item.mysterymod.golden_apple_green_tea": "Golden Apple Green Tea"
 }
