@@ -19,10 +19,6 @@ import java.util.Map;
 @Mixin(ModelPredicateProviderRegistry.class)
 public abstract class ModelPredicateProviderRegistryMixin {
 
-    @Shadow
-    @Final
-    private static Map<Item, Map<Identifier, ModelPredicateProvider>> ITEM_SPECIFIC;
-
     @Inject(method = "register(Lnet/minecraft/item/Item;Lnet/minecraft/util/Identifier;Lnet/minecraft/client/item/ClampedModelPredicateProvider;)V", at = @At("RETURN"))
     private static void injected(Item item, Identifier id, ClampedModelPredicateProvider provider, CallbackInfo ci) {
         if (item == Items.CROSSBOW) {
