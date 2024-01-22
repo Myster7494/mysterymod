@@ -30,10 +30,10 @@
     "mysterymod.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.21",
-    "minecraft": "~1.20",
+    "fabricloader": ">=0.15.6",
+    "minecraft": ">=1.20.4",
     "java": ">=17",
-    "fabric-api": "*"
+    "fabric-api": ">=0.95.0+1.20.4"
   },
   "suggests": {
     "another-mod": "*"
