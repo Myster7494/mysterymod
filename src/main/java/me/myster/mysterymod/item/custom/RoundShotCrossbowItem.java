@@ -46,11 +46,11 @@ public class RoundShotCrossbowItem extends CrossbowItem {
         List<ItemStack> list = RoundShotCrossbowItem.getProjectiles(stack);
         ArrayList<Float> fs = RoundShotCrossbowItem.getSoundPitches(entity.getRandom());
         for (int i = 0; i < list.size(); ++i) {
-            boolean bl;
+            boolean isCreative;
             ItemStack itemStack = list.get(i);
-            bl = entity instanceof PlayerEntity && ((PlayerEntity) entity).getAbilities().creativeMode;
+            isCreative = entity instanceof PlayerEntity && ((PlayerEntity) entity).getAbilities().creativeMode;
             if (itemStack.isEmpty()) continue;
-            CrossbowItem.shoot(world, entity, hand, stack, itemStack, fs.get(i), bl, speed, divergence, i * ((float) 360 / list.size()));
+            CrossbowItem.shoot(world, entity, hand, stack, itemStack, fs.get(i), isCreative, speed, divergence, i * ((float) 360 / list.size()));
         }
         CrossbowItem.postShoot(world, entity, stack);
     }

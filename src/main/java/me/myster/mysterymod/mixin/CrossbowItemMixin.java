@@ -6,7 +6,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.entity.projectile.WitherSkullEntity;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -21,6 +20,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+//弩發射凋零骷髏頭顱
 
 @Mixin(CrossbowItem.class)
 public abstract class CrossbowItemMixin {
@@ -40,9 +41,6 @@ public abstract class CrossbowItemMixin {
         } else if (projectile.isOf(Items.WITHER_SKELETON_SKULL)) {
             projectileEntity = new CrossbowWitherSkullEntity(world, shooter, vector3f.x, vector3f.y, vector3f.z);
             projectileEntity.setPos(shooter.getX(), shooter.getEyeY() - (double) 0.15f, shooter.getZ());
-            if (shooter.getRandom().nextBoolean() && shooter.getRandom().nextBoolean() && shooter.getRandom().nextBoolean() && shooter.getRandom().nextBoolean()) {
-                ((WitherSkullEntity) projectileEntity).setCharged(true);
-            }
         } else {
             projectileEntity = CrossbowItem.createArrow(world, shooter, crossbow, projectile);
             if (creative || simulated != 0.0f) {

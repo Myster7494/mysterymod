@@ -5,12 +5,14 @@
   "mixins": [
     "CrossbowItemMixin",
     "FireChargeItemMixin",
-    "ItemStackMixin"
+    "WitherSkullEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "ModelPredicateProviderRegistryMixin"
+    "HeldItemRendererMixin",
+    "ModelPredicateProviderRegistryMixin",
+    "PlayerEntityRendererMixin"
   ]
 }

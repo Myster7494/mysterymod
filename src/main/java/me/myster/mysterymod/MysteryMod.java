@@ -9,8 +9,6 @@ import net.minecraft.item.RangedWeaponItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static net.minecraft.item.RangedWeaponItem.BOW_PROJECTILES;
-
 public class MysteryMod implements ModInitializer {
     // This logger is used to write text to the console and the log file.
     // It is considered best practice to use your mod id as the logger's name.
@@ -27,6 +25,6 @@ public class MysteryMod implements ModInitializer {
         ModBlocks.registerModBlocks();
         ModItemGroups.registerItemGroups();
         ModModelPredicates.registerModelPredicates();
-        RangedWeaponItem.CROSSBOW_HELD_PROJECTILES = BOW_PROJECTILES.or(stack -> stack.isOf(Items.FIREWORK_ROCKET)).or(stack -> stack.isOf(Items.WITHER_SKELETON_SKULL));
+        RangedWeaponItem.CROSSBOW_HELD_PROJECTILES = RangedWeaponItem.CROSSBOW_HELD_PROJECTILES.or(stack -> stack.isOf(Items.WITHER_SKELETON_SKULL));
     }
 }

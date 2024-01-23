@@ -1,8 +1,4 @@
 {
-  "item.mysterymod.round_shot_crossbow": "圓形射擊弩",
   "itemgroup.mysterymod.mysterymod": "神秘模組",
-  "item.mysterymod.black_tea": "紅茶",
-  "item.mysterymod.golden_apple_black_tea": "金蘋果紅茶",
-  "item.mysterymod.green_tea": "綠茶",
-  "item.mysterymod.golden_apple_green_tea": "金蘋果綠茶"
+  "item.mysterymod.round_shot_crossbow": "圓形射擊弩"
 }

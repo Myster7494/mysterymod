@@ -13,6 +13,9 @@ import org.joml.Quaternionf;
 import org.joml.Vector3f;
 import org.spongepowered.asm.mixin.Mixin;
 
+
+//右鍵火焰彈
+
 @Mixin(FireChargeItem.class)
 public abstract class FireChargeItemMixin extends Item {
     public FireChargeItemMixin(Settings settings) {
