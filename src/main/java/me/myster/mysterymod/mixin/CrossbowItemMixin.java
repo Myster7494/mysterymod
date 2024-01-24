@@ -1,6 +1,7 @@
 package me.myster.mysterymod.mixin;
 
 import me.myster.mysterymod.entity.CrossbowWitherSkullEntity;
+import me.myster.mysterymod.item.custom.RoundShotCrossbowItem;
 import net.minecraft.entity.CrossbowUser;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
@@ -19,14 +20,24 @@ import org.joml.Vector3f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 //弩發射凋零骷髏頭顱
 
 @Mixin(CrossbowItem.class)
 public abstract class CrossbowItemMixin {
+//    @Shadow
+//    public static PersistentProjectileEntity createArrow(World world, LivingEntity entity, ItemStack crossbow, ItemStack arrow) {
+//    }
+
+    @Redirect(method = "use(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/TypedActionResult;", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/CrossbowItem;shootAll(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/util/Hand;Lnet/minecraft/item/ItemStack;FF)V"))
+    private static void injectedShootAll(World world, LivingEntity entity, Hand hand, ItemStack stack, float speed, float divergence) {
+        RoundShotCrossbowItem.shootAll(world, entity, hand, stack, speed, divergence);
+    }
+
     @Inject(method = "shoot(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/util/Hand;Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;FZFFF)V", at = @At("HEAD"), cancellable = true)
-    private static void injected(World world, LivingEntity shooter, Hand hand, ItemStack crossbow, ItemStack projectile, float soundPitch, boolean creative, float speed, float divergence, float simulated, CallbackInfo ci) {
+    private static void shootInjected(World world, LivingEntity shooter, Hand hand, ItemStack crossbow, ItemStack projectile, float soundPitch, boolean creative, float speed, float divergence, float simulated, CallbackInfo ci) {
         ProjectileEntity projectileEntity;
         if (world.isClient) {
             return;

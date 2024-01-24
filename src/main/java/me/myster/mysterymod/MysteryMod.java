@@ -3,9 +3,9 @@ package me.myster.mysterymod;
 import me.myster.mysterymod.block.ModBlocks;
 import me.myster.mysterymod.item.ModItemGroups;
 import me.myster.mysterymod.item.ModItems;
+import me.myster.mysterymod.mixin.RangedWeaponItemAccessor;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Items;
-import net.minecraft.item.RangedWeaponItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +25,8 @@ public class MysteryMod implements ModInitializer {
         ModBlocks.registerModBlocks();
         ModItemGroups.registerItemGroups();
         ModModelPredicates.registerModelPredicates();
-        RangedWeaponItem.CROSSBOW_HELD_PROJECTILES = RangedWeaponItem.CROSSBOW_HELD_PROJECTILES.or(stack -> stack.isOf(Items.WITHER_SKELETON_SKULL));
+
+        //使弩能裝備凋零骷髏頭顱
+        RangedWeaponItemAccessor.setCrossbowHeldProjectiles(RangedWeaponItemAccessor.getCrossbowHeldProjectiles().or(stack -> stack.isOf(Items.WITHER_SKELETON_SKULL)));
     }
 }
